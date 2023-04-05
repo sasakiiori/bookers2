@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  protect_from_forgery
+  #protect_from_forgery
   def index
     @user = current_user
     @books = Book.all
@@ -11,7 +11,17 @@ class BooksController < ApplicationController
     @user = @book.user
   end
 
+  def edit
+    @book = Book.new
+    @book = Book.find(params[:id])
+   if @book.user != current_user
+
+       redirect_to books_path
+   end
+  end
+
   def create
+
    @book =Book.new(book_params)
    @book.user_id = current_user.id
 
@@ -38,3 +48,4 @@ class BooksController < ApplicationController
   end
 
 end
+
