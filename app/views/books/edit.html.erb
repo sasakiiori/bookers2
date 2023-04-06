@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+
+
+    <h2>Editing Book</h2>
+    <%= form_with model: @book, url:book_path(@book.id), method: :patch do |f| %>
+
+    <label for="book_title">Title</label>
+    <div>
+    <%= f.text_field :title %>
+    </div>
+
+    <label for="book_opinion">Opinion</label>
+    <div>
+    <%= f.text_area :body %>
+    </div>
+
+   <div>
+    <%= f.submit 'Update User' ,class: "btn btn-success"%>
+   </div>
+
+   <div>
+   <%=link_to 'Show',book_path(@book.id) %> |
+   <%=link_to 'Back',book_path(@book.id) %>
+   </div>
+
+    <!--<div class="form-group">-->
+      <!--<input type="submit" name="commit" value="Update User" class="btn btn-secondary" date-disable-with="Update User">-->
+    <!--</div>-->
+     </div>
+</div>
+
+      </div>
+<% end %>
+
+</div>
+</main>
+<footer>
+ <div class="container mt-5">
+  <div class="row">
+   <div class="mx-auto">
+    <p>CopyRight Infratop.inc</p>
+   </div>
+  </div>
+ </div>
+</footer>
+</body>
+</html>
