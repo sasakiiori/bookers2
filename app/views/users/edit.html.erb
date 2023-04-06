@@ -4,6 +4,14 @@
 
 
     <h2>User info</h2>
+    <% if @user.errors.any? %>
+    <h3><%= @user.errors.count %>error prohibited this obj from being saved:</h3>
+    <ul>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+<% end %>
     <%= form_with model: @user, url:user_path(@user.id), method: :patch do |f| %>
 
     <label for="user_name">Name</label>
