@@ -58,12 +58,14 @@
      <td>
       <%= @book.body %>
      </td>
+     <% if current_user == @book.user %>
      <td>
        <%= link_to "Edit", edit_book_path(@book.id) , class: "btn btn-success"%>
      </td>
      <td>
        <%= link_to "Destroy", book_path(@book.id) , method: :delete, "data-confirm" => "Are you sure?", class: "btn btn-danger"%>
      </td>
+     <% end %>
     </tr>
 
   </tbody>
